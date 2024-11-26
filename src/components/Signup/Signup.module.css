@@ -1,0 +1,8 @@
+.radio {
+  width: 10px;
+  height: 10px;
+}
+.radioBtnsWrapper {
+  display: flex;
+  gap: 20px;
+}

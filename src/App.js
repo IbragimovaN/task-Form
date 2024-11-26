@@ -6,7 +6,10 @@ import styles from "./App.module.css";
 
 function App() {
   const [isOpenRegForm, setIsOpenRegForm] = useState(false);
-
+  const handleSubmit = (e, data) => {
+    e.preventDefault();
+    console.log(data);
+  };
   return (
     <div className={styles.app}>
       <div>
@@ -26,7 +29,11 @@ function App() {
         </Button>
       </div>
 
-      {isOpenRegForm ? <Signup /> : <Signin />}
+      {isOpenRegForm ? (
+        <Signup handleSubmit={handleSubmit} />
+      ) : (
+        <Signin handleSubmit={handleSubmit} />
+      )}
     </div>
   );
 }
