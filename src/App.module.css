@@ -1,9 +1,16 @@
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .appBtn {
   border: none;
   background-color: #fff;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+.wrapperBtn {
+  text-align: center;
+  margin-right: 30%;
 }

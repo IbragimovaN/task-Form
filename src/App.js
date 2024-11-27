@@ -12,7 +12,7 @@ function App() {
   };
   return (
     <div className={styles.app}>
-      <div>
+      <div className={styles.wrapperBtn}>
         <Button
           onClick={() => setIsOpenRegForm(false)}
           classname={styles.appBtn}
@@ -28,7 +28,6 @@ function App() {
           Зарегистрироваться
         </Button>
       </div>
-
       {isOpenRegForm ? (
         <Signup handleSubmit={handleSubmit} />
       ) : (
