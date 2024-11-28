@@ -27,8 +27,6 @@ export const Input = ({
   const radius = useMemo(() => borderRadiusFunc(borderRadius), [borderRadius]);
   const size = useMemo(() => inputSizeFunc(inputSize), [inputSize]);
 
-  console.log(isDisabled);
-
   useEffect(() => {
     if (isDemoInput) {
       setShowError(true);

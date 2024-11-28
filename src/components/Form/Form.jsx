@@ -5,6 +5,7 @@ import styles from "./Form.module.css";
 const Form = forwardRef(
   ({ children, btnValue, data, setData, handleSubmit, onReset }, ref) => {
     const handleChange = (e) => {
+      console.log("DATA", data);
       if (e.target.name === "sex") {
         setData({
           ...data,

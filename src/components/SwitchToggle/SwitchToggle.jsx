@@ -1,8 +1,5 @@
-import { useState } from "react";
 import styles from "./SwitchToggle.module.css";
-export const SwitchToggle = ({ label, name }) => {
-  const [checked, setChecked] = useState(false);
-
+export const SwitchToggle = ({ label, name, checked }) => {
   return (
     <label className={styles.label}>
       <div
@@ -19,12 +16,7 @@ export const SwitchToggle = ({ label, name }) => {
         />
       </div>
       {label}
-      <input
-        name={name}
-        type="checkbox"
-        onChange={(e) => setChecked(e.target.checked)}
-        className={styles.input}
-      />
+      <input name={name} type="checkbox" className={styles.input} />
     </label>
   );
 };

@@ -86,10 +86,22 @@ export const ControlPanel = ({
           options={optionForSelectColorScheme}
         />
 
-        <RangeInput name="borderRadius" label="Radius" />
-        <RangeInput name="inputSize" label="Size" />
-        <SwitchToggle label="Disabled" name="isDisabled" />
-        <SwitchToggle label="With asterics" name="withAsterics" />
+        <RangeInput
+          name="borderRadius"
+          label="Radius"
+          value={demoInput.borderRadius}
+        />
+        <RangeInput name="inputSize" label="Size" value={demoInput.inputSize} />
+        <SwitchToggle
+          label="Disabled"
+          name="isDisabled"
+          checked={demoInput.isDisabled}
+        />
+        <SwitchToggle
+          label="With asterics"
+          name="withAsterics"
+          checked={demoInput.withAsterics}
+        />
       </Form>
     </div>
   );
