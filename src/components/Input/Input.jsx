@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./Input.module.css";
 import { funcValidate } from "../../utils/funcValidate";
+import { colorStyleFunc } from "../../utils/colorStyleFunc";
+import { borderRadiusFunc } from "../../utils/borderRadiusFunc";
 
 export const Input = ({
   type,
@@ -14,27 +16,12 @@ export const Input = ({
   required,
   isDemoInput,
   colorScheme,
+  borderRadius,
 }) => {
   const [showError, setShowError] = useState(false);
-  console.log(colorScheme);
 
-  const colorStyleFunc = (colorScheme) => {
-    if (colorScheme === "filled") {
-      return {
-        backgroundColor: "#f1f3f5",
-        color: "#b3b9c0",
-        border: "none",
-      };
-    } else if (colorScheme === "unstyled") {
-      return {
-        backgroundColor: "#fff",
-        color: "#b3b9c0",
-        border: "none",
-      };
-    }
-  };
-
-  const scheme = colorStyleFunc(colorScheme);
+  const scheme = useMemo(() => colorStyleFunc(colorScheme), [colorScheme]);
+  const radius = useMemo(() => borderRadiusFunc(borderRadius), [borderRadius]);
 
   useEffect(() => {
     if (isDemoInput) {
@@ -56,7 +43,7 @@ export const Input = ({
           id={id}
           onBlur={(e) => funcValidate(e, setShowError)}
           required={required}
-          style={scheme}
+          style={{ ...scheme, ...radius }}
         />
         {showError && <div className={styles.error}>{error}</div>}
       </label>

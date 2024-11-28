@@ -25,6 +25,7 @@ export const Signup = ({ handleSubmit }) => {
           description={demoInput.description}
           isDemoInput={true}
           colorScheme={demoInput.colorScheme}
+          borderRadius={demoInput.borderRadius}
         />
 
         <h2 className={styles.title}>Готовая форма регистрации</h2>
@@ -38,6 +39,7 @@ export const Signup = ({ handleSubmit }) => {
             error={item.error}
             description={item.description}
             colorScheme={item.colorScheme}
+            borderRadius={item.borderRadius}
           />
         ))}
       </Form>

@@ -31,6 +31,7 @@ export const Signin = ({ handleSubmit }) => {
           description={demoInput.description}
           colorScheme={demoInput.colorScheme}
           isDemoInput={true}
+          borderRadius={demoInput.borderRadius}
         />
 
         <h2 className={styles.title}>Готовая форма авторизации</h2>
@@ -44,6 +45,7 @@ export const Signin = ({ handleSubmit }) => {
             error={item.error}
             description={item.description}
             colorScheme={item.colorScheme}
+            borderRadius={item.borderRadius}
           />
         ))}
 

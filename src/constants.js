@@ -28,6 +28,7 @@ export const initialStateDemoInput = {
   disabled: false,
   withAsterics: "",
   colorScheme: "default",
+  borderRadius: "0",
 };
 
 export const optionForSelectColorScheme = [

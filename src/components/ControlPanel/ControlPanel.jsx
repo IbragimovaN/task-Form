@@ -9,6 +9,7 @@ import {
   optionForSelectNameInput,
   optionForSelectType,
 } from "../../constants";
+import { RangeInput } from "../RangeInput/RangeInput";
 
 export const ControlPanel = ({
   inputsArr,
@@ -80,6 +81,7 @@ export const ControlPanel = ({
           title="Выберите атрибут name для инпута"
           options={optionForSelectNameInput}
         />
+        <RangeInput name="borderRadius" label="Radius" />
       </Form>
     </div>
   );
