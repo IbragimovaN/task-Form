@@ -10,6 +10,7 @@ import {
   optionForSelectType,
 } from "../../constants";
 import { RangeInput } from "../RangeInput/RangeInput";
+import { SwitchToggle } from "../SwitchToggle/SwitchToggle";
 
 export const ControlPanel = ({
   inputsArr,
@@ -26,7 +27,10 @@ export const ControlPanel = ({
 
   const createInputClick = (e) => {
     e.preventDefault();
-    setInputsArr([...inputsArr, { ...demoInput }]);
+    setInputsArr([
+      ...inputsArr,
+      { ...demoInput, id: Math.random().toString().slice(3) },
+    ]);
     handleReset();
     formRef.current.reset();
   };
@@ -83,6 +87,7 @@ export const ControlPanel = ({
         />
         <RangeInput name="borderRadius" label="Radius" />
         <RangeInput name="inputSize" label="Size" />
+        <SwitchToggle label="Disabled" name="isDisabled" />
       </Form>
     </div>
   );

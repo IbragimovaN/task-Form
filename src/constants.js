@@ -25,7 +25,7 @@ export const initialStateDemoInput = {
   variant: "",
   radius: "",
   size: "",
-  disabled: false,
+  isDisabled: false,
   withAsterics: "",
   colorScheme: "default",
   borderRadius: "0",

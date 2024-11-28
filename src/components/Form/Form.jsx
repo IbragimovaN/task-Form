@@ -5,11 +5,16 @@ import styles from "./Form.module.css";
 const Form = forwardRef(
   ({ children, btnValue, data, setData, handleSubmit, onReset }, ref) => {
     const handleChange = (e) => {
-      console.log(e.target.name, e.target.value);
       if (e.target.name === "sex") {
         setData({
           ...data,
           [e.target.name]: e.target.id,
+        });
+      } else if (e.target.name === "isDisabled") {
+        console.log(e.target.name, e.target.checked);
+        setData({
+          ...data,
+          [e.target.name]: e.target.checked,
         });
       } else {
         setData({

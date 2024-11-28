@@ -33,6 +33,7 @@ export const Signin = ({ handleSubmit }) => {
           isDemoInput={true}
           borderRadius={demoInput.borderRadius}
           inputSize={demoInput.inputSize}
+          isDisabled={demoInput.isDisabled}
         />
 
         <h2 className={styles.title}>Готовая форма авторизации</h2>
@@ -42,12 +43,13 @@ export const Signin = ({ handleSubmit }) => {
             name={item.name}
             placeholder={item.placeholder}
             label={item.label}
-            key={item.name}
+            key={item.id}
             error={item.error}
             description={item.description}
             colorScheme={item.colorScheme}
             borderRadius={item.borderRadius}
             inputSize={item.inputSize}
+            isDisabled={item.isDisabled}
           />
         ))}
 

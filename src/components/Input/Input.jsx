@@ -19,13 +19,15 @@ export const Input = ({
   colorScheme,
   borderRadius = "0",
   inputSize = "0",
+  isDisabled,
 }) => {
   const [showError, setShowError] = useState(false);
-  console.log(inputSize);
 
   const scheme = useMemo(() => colorStyleFunc(colorScheme), [colorScheme]);
   const radius = useMemo(() => borderRadiusFunc(borderRadius), [borderRadius]);
   const size = useMemo(() => inputSizeFunc(inputSize), [inputSize]);
+
+  console.log(isDisabled);
 
   useEffect(() => {
     if (isDemoInput) {
@@ -48,6 +50,7 @@ export const Input = ({
           onBlur={(e) => funcValidate(e, setShowError)}
           required={required}
           style={{ ...scheme, ...radius, ...size }}
+          disabled={isDisabled}
         />
         {showError && <div className={styles.error}>{error}</div>}
       </label>
