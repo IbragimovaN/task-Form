@@ -28,6 +28,7 @@ export const Signup = ({ handleSubmit }) => {
           borderRadius={demoInput.borderRadius}
           inputSize={demoInput.inputSize}
           isDisabled={demoInput.isDisabled}
+          withAsterics={demoInput.withAsterics}
         />
 
         <h2 className={styles.title}>Готовая форма регистрации</h2>
@@ -44,6 +45,7 @@ export const Signup = ({ handleSubmit }) => {
             borderRadius={item.borderRadius}
             inputSize={item.inputSize}
             isDisabled={item.isDisabled}
+            withAsterics={item.withAsterics}
           />
         ))}
       </Form>

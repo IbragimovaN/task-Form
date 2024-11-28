@@ -1,6 +1,6 @@
 .label {
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 .input {
   opacity: 0;
@@ -16,6 +16,7 @@
   vertical-align: top;
   background: #eee;
   transition: 0.2s;
+  margin-right: 10px;
 }
 .circle {
   position: absolute;

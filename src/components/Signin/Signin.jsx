@@ -6,10 +6,7 @@ import styles from "./Signin.module.css";
 import { initialStateDemoInput } from "../../constants";
 
 export const Signin = ({ handleSubmit }) => {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
+  const [data, setData] = useState({});
 
   const [demoInput, setDemoInput] = useState(initialStateDemoInput);
   const [inputsArr, setInputsArr] = useState([]);
@@ -34,6 +31,7 @@ export const Signin = ({ handleSubmit }) => {
           borderRadius={demoInput.borderRadius}
           inputSize={demoInput.inputSize}
           isDisabled={demoInput.isDisabled}
+          withAsterics={demoInput.withAsterics}
         />
 
         <h2 className={styles.title}>Готовая форма авторизации</h2>
@@ -50,6 +48,7 @@ export const Signin = ({ handleSubmit }) => {
             borderRadius={item.borderRadius}
             inputSize={item.inputSize}
             isDisabled={item.isDisabled}
+            withAsterics={item.withAsterics}
           />
         ))}
 

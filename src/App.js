@@ -8,6 +8,7 @@ function App() {
   const [isOpenRegForm, setIsOpenRegForm] = useState(false);
   const handleSubmit = (e, data) => {
     e.preventDefault();
+    console.log(e);
     console.log(data);
   };
   return (

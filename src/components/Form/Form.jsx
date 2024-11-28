@@ -10,8 +10,10 @@ const Form = forwardRef(
           ...data,
           [e.target.name]: e.target.id,
         });
-      } else if (e.target.name === "isDisabled") {
-        console.log(e.target.name, e.target.checked);
+      } else if (
+        e.target.name === "isDisabled" ||
+        e.target.name === "withAsterics"
+      ) {
         setData({
           ...data,
           [e.target.name]: e.target.checked,

@@ -51,6 +51,11 @@ export const ControlPanel = ({
           name="type"
           options={optionForSelectType}
         />
+        <Select
+          name="name"
+          title="Выберите атрибут name для инпута"
+          options={optionForSelectNameInput}
+        />
         <Input
           type="text"
           name="placeholder"
@@ -80,14 +85,11 @@ export const ControlPanel = ({
           title="Выберите цветовую схему"
           options={optionForSelectColorScheme}
         />
-        <Select
-          name="name"
-          title="Выберите атрибут name для инпута"
-          options={optionForSelectNameInput}
-        />
+
         <RangeInput name="borderRadius" label="Radius" />
         <RangeInput name="inputSize" label="Size" />
         <SwitchToggle label="Disabled" name="isDisabled" />
+        <SwitchToggle label="With asterics" name="withAsterics" />
       </Form>
     </div>
   );

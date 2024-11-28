@@ -14,12 +14,12 @@ export const Input = ({
   id,
   error,
   description,
-  required,
   isDemoInput,
   colorScheme,
   borderRadius = "0",
   inputSize = "0",
   isDisabled,
+  withAsterics,
 }) => {
   const [showError, setShowError] = useState(false);
 
@@ -38,7 +38,7 @@ export const Input = ({
   return (
     <div>
       <label className={styles.label}>
-        {label}
+        {label} <span className={styles.star}>{withAsterics && "*"}</span>
         <div className={styles.description}>{description}</div>
         <input
           type={type}
@@ -48,7 +48,7 @@ export const Input = ({
           label={label}
           id={id}
           onBlur={(e) => funcValidate(e, setShowError)}
-          required={required}
+          required={withAsterics}
           style={{ ...scheme, ...radius, ...size }}
           disabled={isDisabled}
         />

@@ -5,13 +5,6 @@ export const SwitchToggle = ({ label, name }) => {
 
   return (
     <label className={styles.label}>
-      {label}
-      <input
-        name={name}
-        type="checkbox"
-        onChange={(e) => setChecked(e.target.checked)}
-        className={styles.input}
-      />
       <div
         className={styles.checkboxSwitch}
         style={
@@ -25,6 +18,13 @@ export const SwitchToggle = ({ label, name }) => {
           style={checked ? { right: "1px" } : { left: "1px" }}
         />
       </div>
+      {label}
+      <input
+        name={name}
+        type="checkbox"
+        onChange={(e) => setChecked(e.target.checked)}
+        className={styles.input}
+      />
     </label>
   );
 };
