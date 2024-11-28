@@ -55,12 +55,14 @@ export const ControlPanel = ({
           name="name"
           title="Выберите атрибут name для инпута"
           options={optionForSelectNameInput}
+          isDisabled={demoInput.type === "radio" ? true : false}
         />
         <Input
           type="text"
           name="placeholder"
           placeholder={demoInput.placeholder}
           label="Placeholder"
+          isDisabled={demoInput.type === "radio" ? true : false}
         />
         <Input
           type="text"
@@ -79,6 +81,15 @@ export const ControlPanel = ({
           name="error"
           placeholder={demoInput.error}
           label="Error"
+          isDisabled={demoInput.type === "radio" ? true : false}
+        />
+        <Input
+          type="text"
+          name="idForRadio"
+          placeholder={"Введите значение id для радио-инпута"}
+          label="Значение id для радио-инпута"
+          description="Латиница, слитно, не должно дублироваться с другими"
+          isDisabled={demoInput.type === "radio" ? false : true}
         />
         <Select
           name="colorScheme"

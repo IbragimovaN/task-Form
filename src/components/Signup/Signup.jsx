@@ -29,6 +29,10 @@ export const Signup = ({ handleSubmit }) => {
           inputSize={demoInput.inputSize}
           isDisabled={demoInput.isDisabled}
           withAsterics={demoInput.withAsterics}
+          type={demoInput.type}
+          name={demoInput.name}
+          id={demoInput.id}
+          idForRadio={demoInput.idForRadio}
         />
 
         <h2 className={styles.title}>Готовая форма регистрации</h2>
@@ -46,6 +50,8 @@ export const Signup = ({ handleSubmit }) => {
             inputSize={item.inputSize}
             isDisabled={item.isDisabled}
             withAsterics={item.withAsterics}
+            id={item.id}
+            idForRadio={item.idForRadio}
           />
         ))}
       </Form>

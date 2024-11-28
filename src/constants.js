@@ -23,11 +23,11 @@ export const initialStateDemoInput = {
   error: "Текст ошибки при не валидном вводе",
   name: "",
   isDisabled: false,
-  withAsterics: "",
   colorScheme: "default",
   borderRadius: "0",
   inputSize: "0",
   withAsterics: false,
+  type: "text",
 };
 
 export const optionForSelectColorScheme = [
