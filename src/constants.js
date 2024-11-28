@@ -29,10 +29,19 @@ export const initialStateDemoInput = {
   withAsterics: "",
   colorScheme: "default",
   borderRadius: "0",
+  inputSize: "0",
 };
 
 export const optionForSelectColorScheme = [
   { id: 1, value: "default" },
   { id: 2, value: "filled" },
   { id: 3, value: "unstyled" },
+];
+
+export const dataArrForRangeInput = [
+  { number: 0, text: "xs" },
+  { number: 1, text: "sm" },
+  { number: 2, text: "md" },
+  { number: 3, text: "lg" },
+  { number: 4, text: "xl" },
 ];

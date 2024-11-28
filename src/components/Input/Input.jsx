@@ -3,6 +3,7 @@ import styles from "./Input.module.css";
 import { funcValidate } from "../../utils/funcValidate";
 import { colorStyleFunc } from "../../utils/colorStyleFunc";
 import { borderRadiusFunc } from "../../utils/borderRadiusFunc";
+import { inputSizeFunc } from "../../utils/inputSizeFunc";
 
 export const Input = ({
   type,
@@ -16,12 +17,15 @@ export const Input = ({
   required,
   isDemoInput,
   colorScheme,
-  borderRadius,
+  borderRadius = "0",
+  inputSize = "0",
 }) => {
   const [showError, setShowError] = useState(false);
+  console.log(inputSize);
 
   const scheme = useMemo(() => colorStyleFunc(colorScheme), [colorScheme]);
   const radius = useMemo(() => borderRadiusFunc(borderRadius), [borderRadius]);
+  const size = useMemo(() => inputSizeFunc(inputSize), [inputSize]);
 
   useEffect(() => {
     if (isDemoInput) {
@@ -43,7 +47,7 @@ export const Input = ({
           id={id}
           onBlur={(e) => funcValidate(e, setShowError)}
           required={required}
-          style={{ ...scheme, ...radius }}
+          style={{ ...scheme, ...radius, ...size }}
         />
         {showError && <div className={styles.error}>{error}</div>}
       </label>

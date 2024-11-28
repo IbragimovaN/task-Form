@@ -82,6 +82,7 @@ export const ControlPanel = ({
           options={optionForSelectNameInput}
         />
         <RangeInput name="borderRadius" label="Radius" />
+        <RangeInput name="inputSize" label="Size" />
       </Form>
     </div>
   );
