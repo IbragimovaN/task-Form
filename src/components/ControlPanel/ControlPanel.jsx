@@ -51,19 +51,33 @@ export const ControlPanel = ({
           name="type"
           options={optionForSelectType}
         />
-        <Select
-          name="name"
-          title="Выберите атрибут name для инпута"
-          options={optionForSelectNameInput}
-          isDisabled={demoInput.type === "radio" ? true : false}
-        />
-        <Input
-          type="text"
-          name="placeholder"
-          placeholder={demoInput.placeholder}
-          label="Placeholder"
-          isDisabled={demoInput.type === "radio" ? true : false}
-        />
+        {demoInput.type === "radio" && (
+          <Input
+            type="text"
+            name="idForRadio"
+            placeholder={"Введите значение id для радио-инпута"}
+            label="Значение id для радио-инпута"
+            description="Латиница, слитно, не должно дублироваться с другими"
+            isDisabled={demoInput.type === "radio" ? false : true}
+          />
+        )}
+        {demoInput.type !== "radio" && (
+          <>
+            <Select
+              name="name"
+              title="Выберите атрибут name для инпута"
+              options={optionForSelectNameInput}
+            />
+
+            <Input
+              type="text"
+              name="placeholder"
+              placeholder={demoInput.placeholder}
+              label="Placeholder"
+              isDisabled={demoInput.type === "radio" ? true : false}
+            />
+          </>
+        )}
         <Input
           type="text"
           name="label"
@@ -76,38 +90,37 @@ export const ControlPanel = ({
           placeholder={demoInput.description}
           label="Description"
         />
-        <Input
-          type="text"
-          name="error"
-          placeholder={demoInput.error}
-          label="Error"
-          isDisabled={demoInput.type === "radio" ? true : false}
-        />
-        <Input
-          type="text"
-          name="idForRadio"
-          placeholder={"Введите значение id для радио-инпута"}
-          label="Значение id для радио-инпута"
-          description="Латиница, слитно, не должно дублироваться с другими"
-          isDisabled={demoInput.type === "radio" ? false : true}
-        />
+        {demoInput.type !== "radio" && (
+          <Input
+            type="text"
+            name="error"
+            placeholder={demoInput.error}
+            label="Error"
+          />
+        )}
+
         <Select
           name="colorScheme"
           title="Выберите цветовую схему"
           options={optionForSelectColorScheme}
         />
 
-        <RangeInput
-          name="borderRadius"
-          label="Radius"
-          value={demoInput.borderRadius}
-        />
         <RangeInput name="inputSize" label="Size" value={demoInput.inputSize} />
-        <SwitchToggle
-          label="Disabled"
-          name="isDisabled"
-          checked={demoInput.isDisabled}
-        />
+        {demoInput.type !== "radio" && (
+          <>
+            {" "}
+            <RangeInput
+              name="borderRadius"
+              label="Radius"
+              value={demoInput.borderRadius}
+            />
+            <SwitchToggle
+              label="Disabled"
+              name="isDisabled"
+              checked={demoInput.isDisabled}
+            />
+          </>
+        )}
         <SwitchToggle
           label="With asterics"
           name="withAsterics"
