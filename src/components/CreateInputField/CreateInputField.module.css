@@ -1,0 +1,16 @@
+.page {
+  display: grid;
+  grid-template: 1fr/ 70% 30%;
+  justify-items: center;
+  border-top: 1px solid #d1cccc;
+}
+.currentInputWrapper {
+  border-bottom: 1px solid #d1cccc;
+  padding: 20px 0;
+  margin: 20px 0;
+}
+
+.title {
+  align-self: center;
+  margin: 5px;
+}
