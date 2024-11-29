@@ -1,13 +1,6 @@
-import { useState } from "react";
 import styles from "./RangeInput.module.css";
 import { dataArrForRangeInput } from "../../constants";
 export const RangeInput = ({ name, label, value }) => {
-  // const [value, setValue] = useState(0);
-
-  // const handleChange = (event) => {
-  //   setValue(event.target.value);
-  // };
-
   return (
     <label className={styles.label}>
       {label}
@@ -20,14 +13,13 @@ export const RangeInput = ({ name, label, value }) => {
           max="4"
           step="1"
           defaultValue="0"
-          // onChange={handleChange}
         />
         <div className={styles.stepIndicators}>
           {dataArrForRangeInput.map(({ number, text }) => (
             <div
               key={number}
               className={`${styles.step} ${
-                value == number ? styles.active : ""
+                value == number ? styles.active : undefined
               }`}
             >
               {" "}

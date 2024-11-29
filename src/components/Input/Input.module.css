@@ -1,6 +1,7 @@
 .input {
   width: 100%;
   height: 40px;
+  border: 1px solid black;
 }
 
 .error {
@@ -19,6 +20,8 @@
 .inputRadio {
   width: 10px;
   height: 10px;
-  background-color: #51c76d;
   text-align: left;
+}
+
+.label {
 }

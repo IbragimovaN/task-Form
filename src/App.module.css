@@ -8,9 +8,16 @@
   margin-inline-end: 0px;
   font-weight: bold;
   unicode-bidi: isolate;
+  color: #6d6969;
+}
+.appBtn:hover {
+  color: #090909;
 }
 
 .wrapperBtn {
   text-align: center;
   margin-right: 30%;
+}
+.active {
+  text-decoration: underline;
 }

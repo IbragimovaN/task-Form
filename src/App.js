@@ -6,9 +6,11 @@ import styles from "./App.module.css";
 
 function App() {
   const [isOpenRegForm, setIsOpenRegForm] = useState(false);
+  const [inputsArrSignin, setInputsArrSignin] = useState([]);
+  const [inputsArrSignup, setInputsArrSignup] = useState([]);
   const handleSubmit = (e, data) => {
     e.preventDefault();
-    console.log(e);
+
     console.log(data);
   };
   return (
@@ -16,7 +18,9 @@ function App() {
       <div className={styles.wrapperBtn}>
         <Button
           onClick={() => setIsOpenRegForm(false)}
-          classname={styles.appBtn}
+          classname={`${styles.appBtn} ${
+            !isOpenRegForm ? styles.active : undefined
+          }`}
         >
           {" "}
           Войти
@@ -24,15 +28,25 @@ function App() {
         /
         <Button
           onClick={() => setIsOpenRegForm(true)}
-          classname={styles.appBtn}
+          classname={`${styles.appBtn} ${
+            isOpenRegForm ? styles.active : undefined
+          }`}
         >
           Зарегистрироваться
         </Button>
       </div>
       {isOpenRegForm ? (
-        <Signup handleSubmit={handleSubmit} />
+        <Signup
+          handleSubmit={handleSubmit}
+          inputsArr={inputsArrSignup}
+          setInputsArr={setInputsArrSignup}
+        />
       ) : (
-        <Signin handleSubmit={handleSubmit} />
+        <Signin
+          handleSubmit={handleSubmit}
+          inputsArr={inputsArrSignin}
+          setInputsArr={setInputsArrSignin}
+        />
       )}
     </div>
   );

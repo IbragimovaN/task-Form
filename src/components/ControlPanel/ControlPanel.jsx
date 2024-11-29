@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import styles from "./ControlPanel.module.css";
 import { Input } from "../Input/Input";
 import Form from "../Form/Form";
@@ -22,7 +22,7 @@ export const ControlPanel = ({
 
   const handleReset = () => {
     setDemoInput(initialStateDemoInput);
-    console.log(demoInput);
+    formRef.current.reset();
   };
 
   const createInputClick = (e) => {
@@ -32,7 +32,6 @@ export const ControlPanel = ({
       { ...demoInput, id: Math.random().toString().slice(3) },
     ]);
     handleReset();
-    formRef.current.reset();
   };
 
   return (
@@ -45,11 +44,13 @@ export const ControlPanel = ({
         handleSubmit={createInputClick}
         onReset={handleReset}
         ref={formRef}
+        id="controlPanel"
       >
         <Select
           title="Выберите тип инпута"
           name="type"
           options={optionForSelectType}
+          withAsterics={true}
         />
         {demoInput.type === "radio" && (
           <Input
@@ -57,8 +58,9 @@ export const ControlPanel = ({
             name="idForRadio"
             placeholder={"Введите значение id для радио-инпута"}
             label="Значение id для радио-инпута"
-            description="Латиница, слитно, не должно дублироваться с другими"
+            description="Латиница, слитно, не должно дублироваться с другими инпутами"
             isDisabled={demoInput.type === "radio" ? false : true}
+            withAsterics={true}
           />
         )}
         {demoInput.type !== "radio" && (
@@ -67,6 +69,8 @@ export const ControlPanel = ({
               name="name"
               title="Выберите атрибут name для инпута"
               options={optionForSelectNameInput}
+              withAsterics={true}
+              description="Не должно дублироваться с другими инпутами"
             />
 
             <Input
@@ -91,19 +95,21 @@ export const ControlPanel = ({
           label="Description"
         />
         {demoInput.type !== "radio" && (
-          <Input
-            type="text"
-            name="error"
-            placeholder={demoInput.error}
-            label="Error"
-          />
+          <>
+            {" "}
+            <Input
+              type="text"
+              name="error"
+              placeholder={demoInput.error}
+              label="Error"
+            />
+            <Select
+              name="colorScheme"
+              title="Выберите цветовую схему"
+              options={optionForSelectColorScheme}
+            />
+          </>
         )}
-
-        <Select
-          name="colorScheme"
-          title="Выберите цветовую схему"
-          options={optionForSelectColorScheme}
-        />
 
         <RangeInput name="inputSize" label="Size" value={demoInput.inputSize} />
         {demoInput.type !== "radio" && (

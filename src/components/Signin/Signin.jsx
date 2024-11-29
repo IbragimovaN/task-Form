@@ -1,77 +1,26 @@
-import { Input } from "../Input/Input";
-import Form from "../Form/Form";
 import { useEffect, useState } from "react";
-import { ControlPanel } from "../ControlPanel/ControlPanel";
-import styles from "./Signin.module.css";
-import { initialStateDemoInput } from "../../constants";
+import { CreateInputField } from "../CreateInputField/CreateInputField";
 
-export const Signin = ({ handleSubmit }) => {
+export const Signin = ({ handleSubmit, inputsArr, setInputsArr }) => {
   const [data, setData] = useState({});
 
-  const [demoInput, setDemoInput] = useState(initialStateDemoInput);
-  const [inputsArr, setInputsArr] = useState([]);
+  useEffect(() => {
+    console.log("IN");
+    return () => {
+      console.log("IN отписка");
+    };
+  }, []);
 
   return (
-    <div className={styles.page}>
-      {" "}
-      <Form
-        btnValue="Войти"
-        handleSubmit={handleSubmit}
-        data={data}
-        setData={setData}
-      >
-        <h2 className={styles.title}>Демонтрационный инпут</h2>
-        <Input
-          placeholder={demoInput.placeholder}
-          label={demoInput.label}
-          error={demoInput.error}
-          description={demoInput.description}
-          colorScheme={demoInput.colorScheme}
-          isDemoInput={true}
-          borderRadius={demoInput.borderRadius}
-          inputSize={demoInput.inputSize}
-          isDisabled={demoInput.isDisabled}
-          withAsterics={demoInput.withAsterics}
-          type={demoInput.type}
-          name={demoInput.name}
-          id={demoInput.id}
-          idForRadio={demoInput.idForRadio}
-        />
-
-        <h2 className={styles.title}>Готовая форма авторизации</h2>
-        {inputsArr.map((item) => (
-          <Input
-            type={item.type}
-            name={item.name}
-            placeholder={item.placeholder}
-            label={item.label}
-            key={item.id}
-            error={item.error}
-            description={item.description}
-            colorScheme={item.colorScheme}
-            borderRadius={item.borderRadius}
-            inputSize={item.inputSize}
-            isDisabled={item.isDisabled}
-            withAsterics={item.withAsterics}
-            id={item.id}
-            idForRadio={item.idForRadio}
-          />
-        ))}
-
-        {/* <Input type="email" name="email" placeholder="Email" label="Email" />
-        <Input
-          type="Password"
-          name="Password"
-          placeholder="Пароль"
-          label="Пароль"
-        /> */}
-      </Form>
-      <ControlPanel
-        inputsArr={inputsArr}
-        setInputsArr={setInputsArr}
-        demoInput={demoInput}
-        setDemoInput={setDemoInput}
-      />
-    </div>
+    <CreateInputField
+      handleSubmit={handleSubmit}
+      data={data}
+      setData={setData}
+      inputsArr={inputsArr}
+      setInputsArr={setInputsArr}
+      btnValue="Войти"
+      titleForm="Авторизация"
+      formId="signin"
+    />
   );
 };

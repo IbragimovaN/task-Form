@@ -12,7 +12,6 @@ export const optionForSelectNameInput = [
   { id: 3, value: "email" },
   { id: 4, value: "password" },
   { id: 5, value: "passcheck" },
-  { id: 6, value: "sex" },
   { id: 7, value: "phone" },
 ];
 
@@ -21,7 +20,7 @@ export const initialStateDemoInput = {
   label: "Укажите название поля",
   description: "Укажите описание поля (если это необходимо)",
   error: "Текст ошибки при не валидном вводе",
-  name: "",
+  name: "userName",
   isDisabled: false,
   colorScheme: "default",
   borderRadius: "0",

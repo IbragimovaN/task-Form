@@ -4,6 +4,7 @@ import { funcValidate } from "../../utils/funcValidate";
 import { colorStyleFunc } from "../../utils/colorStyleFunc";
 import { borderRadiusFunc } from "../../utils/borderRadiusFunc";
 import { inputSizeFunc } from "../../utils/inputSizeFunc";
+import { inputRadioSizeFunc } from "../../utils/inputRadioSizeFunc";
 
 export const Input = ({
   type,
@@ -26,22 +27,28 @@ export const Input = ({
 
   const scheme = useMemo(() => colorStyleFunc(colorScheme), [colorScheme]);
   const radius = useMemo(() => borderRadiusFunc(borderRadius), [borderRadius]);
-  const size = useMemo(() => inputSizeFunc(inputSize), [inputSize]);
-
-  console.log(type);
+  const size = useMemo(
+    () =>
+      type === "radio"
+        ? inputRadioSizeFunc(inputSize)
+        : inputSizeFunc(inputSize),
+    [inputSize, type]
+  );
 
   useEffect(() => {
     if (isDemoInput) {
       setShowError(true);
     }
-  }, []);
+  }, [isDemoInput]);
 
   return (
     <div>
       {type !== "radio" ? (
-        <label className={isDisabled && styles.labelDisabled}>
+        <label style={{ ...size.forLabel }}>
           {label} <span className={styles.star}>{withAsterics && "*"}</span>
-          <div className={styles.description}>{description}</div>
+          <div className={styles.description} style={{ ...size.forDescr }}>
+            {description}
+          </div>
           <input
             type={type}
             name={name}
@@ -51,17 +58,27 @@ export const Input = ({
             id={id}
             onBlur={(e) => funcValidate(e, setShowError)}
             required={withAsterics}
-            style={{ ...scheme, ...radius, ...size }}
+            style={{ ...scheme, ...radius, ...size.forInput }}
             disabled={isDisabled}
           />
-          {showError && <div className={styles.error}>{error}</div>}
+          {showError && (
+            <div className={styles.error} style={{ ...size.forError }}>
+              {error}
+            </div>
+          )}
         </label>
       ) : (
-        <label>
-          <input type="radio" id={idForRadio}></input>
+        <label style={{ ...size.forLabel }}>
+          <input
+            type="radio"
+            id={idForRadio}
+            style={{ ...size.forInput }}
+          ></input>
           {label}
           <span className={styles.star}>{withAsterics && "*"}</span>
-          <div className={styles.description}>{description}</div>
+          <div className={styles.description} style={{ ...size.forDescr }}>
+            {description}
+          </div>
         </label>
       )}
     </div>

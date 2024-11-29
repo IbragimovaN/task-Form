@@ -5,7 +5,6 @@ import styles from "./Form.module.css";
 const Form = forwardRef(
   ({ children, btnValue, data, setData, handleSubmit, onReset }, ref) => {
     const handleChange = (e) => {
-      console.log(e.target);
       if (e.target.type === "radio") {
         setData({
           ...data,
