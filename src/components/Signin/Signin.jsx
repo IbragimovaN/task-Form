@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CreateInputField } from "../CreateInputField/CreateInputField";
 
 export const Signin = ({ handleSubmit, inputsArr, setInputsArr }) => {
